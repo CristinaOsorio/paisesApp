@@ -15,10 +15,11 @@ export class ByCountryComponent {
 
   constructor(private paisService: PaisService) { }
 
-  search() {
+  search(word: string) {
     this.hasError = false;
+    this.word = word;
     
-    this.paisService.searchCountry(this.word)
+    this.paisService.searchCountry(word)
     .subscribe(countries => {
       this.countries = countries;
     }, error => {
