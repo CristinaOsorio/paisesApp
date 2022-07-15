@@ -1,19 +1,30 @@
 import { Component } from '@angular/core';
+import { PaisService } from '../../services/pais.service';
+import { Country } from './../../interfaces/country.interface';
 
 @Component({
   selector: 'app-by-country',
   templateUrl: './by-country.component.html',
-  styles: [
-  ]
+  styles: [  ]
 })
 export class ByCountryComponent {
-  word: string = 'Hola Mundo';
+  word: string = 'Ho';
+  hasError: boolean = false;
+  countries: Country[] = [];
 
 
-  constructor() { }
+  constructor(private paisService: PaisService) { }
 
   search() {
-    console.log(this.word);
+    this.hasError = false;
+    
+    this.paisService.searchCountry(this.word)
+    .subscribe(countries => {
+      this.countries = countries;
+    }, error => {
+      this.hasError = true;
+      this.countries=[];
+    })
   }
 
 }

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,11 +14,12 @@ import { SeeCountryComponent } from './pages/see-country/see-country.component';
     ByCapitalComponent,
     ByCountryComponent,
     ByRegionComponent,
-    SeeCountryComponent
+    SeeCountryComponent,
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     ByCapitalComponent,

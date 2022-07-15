@@ -9,33 +9,34 @@
 </div>
 <hr />
 
-<div class="alert alert-danger">
-  No se encontro nada con el término.
+<div class="alert alert-danger" *ngIf="hasError">
+  No se encontro nada con el término {{ word }}.
 </div>
-
-<div class="row">
-  <div class="col">
-    <table class="table-hover">
-      <thead>
-        <tr>
-          <th>Numeral</th>
-          <th>Bandera</th>
-          <th>Nombre</th>
-          <th>Población</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Bandera</td>
-          <td>Nombre</td>
-          <td>1234</td>
-          <td>
-            <a href="/pais/españa" class="btn btn-link">Ver...</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover" *ngIf="countries.length > 0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Bandera</th>
+            <th>Nombre</th>
+            <th>Población</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let country of countries; index as i">
+            <td>{{ i + 1 }}</td>
+            <td><img [src]="country.flags.svg" alt="Bandera" class="small-flag"></td>
+            <td>{{ country.name.common }}</td>
+            <td>{{ country.population | number }}</td>
+            <td>
+              <a [routerLink]="['pais',  country.cca2]" class="btn btn-link">Ver...</a>
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+
+
