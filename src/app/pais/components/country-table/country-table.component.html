@@ -12,7 +12,7 @@
     <tr *ngFor="let country of countries; index as i">
       <td>{{ i + 1 }}</td>
       <td><img [src]="country.flags.svg" alt="Bandera" class="small-flag"></td>
-      <td>{{ country.name.common }}</td>
+      <td> {{ country.capital }}, {{ country.name.common }}</td>
       <td>{{ country.population | number }}</td>
       <td>
         <a [routerLink]="['pais',  country.cca2]" class="btn btn-link">Ver...</a>

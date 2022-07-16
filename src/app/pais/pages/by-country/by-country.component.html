@@ -2,7 +2,7 @@
 <hr />
 <div class="row">
   <div class="col">
-    <app-country-input (onEnter)="search($event)"></app-country-input>
+    <app-country-input (onEnter)="search($event)" (onDebounce)="suggestions($event)" placeholder="Buscar País..."></app-country-input>
   </div>
 </div>
 <hr />
@@ -10,10 +10,11 @@
 <div class="alert alert-danger" *ngIf="hasError">
   No se encontro nada con el término {{ word }}.
 </div>
-  <div class="row">
-    <div class="col">
-     <app-country-table [countries]="countries"></app-country-table>
-    </div>
+
+<div class="row">
+  <div class="col">
+    <app-country-table [countries]="countries"></app-country-table>
   </div>
+</div>
 
 

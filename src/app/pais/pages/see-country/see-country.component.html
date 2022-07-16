@@ -1,1 +1,52 @@
-<p>see-country works!</p>
+<div class="alert alert-info" *ngIf="!country; else divCountry" >
+  Expere por favor...
+</div>
+
+<ng-template #divCountry>
+  <div class="row">
+    <div class="col-12">
+      <h1>País: <small> {{ country.name.official }} </small> </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img [src]="country.flags.png" alt="flag" class="img-thumbnail">
+    </div>
+    <div class="col">
+      <h3>Información</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Poblacion:</strong> {{ country.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Codigo Alpha:</strong> {{ country.ccn3 }}
+        </li>
+        <li class="list-group-item">
+          <strong>Moneda:</strong> 
+          <span *ngFor="let currency of country.currencies | keyvalue" class="badge bg-dark m-1">          
+            {{ currency.value.name }}   
+          </span>   
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <hr>
+      <h4>Traducciones</h4>
+      <hr> 
+      <div class="d-flex justify-content-between flex-wrap">
+        <span *ngFor="let t of country.translations | keyvalue" class="badge bg-primary m-1">          
+          {{ t.value.official }}   
+        </span>   
+      </div>
+    </div>
+  </div>
+
+  <pre>
+    {{ country | json }}
+  </pre>
+</ng-template>

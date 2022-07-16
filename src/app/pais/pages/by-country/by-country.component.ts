@@ -28,4 +28,8 @@ export class ByCountryComponent {
     })
   }
 
+  suggestions(value: string) {
+    this.hasError = false;
+  }
+
 }
