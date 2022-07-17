@@ -1,13 +1,14 @@
-<h2>Por País</h2>
-<hr />
-<div class="row">
-  <div class="col">
-    <app-country-input (onEnter)="search($event)" (onDebounce)="suggestions($event)" placeholder="Buscar País..."></app-country-input>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>Por País</h2>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <app-country-input (onEnter)="search($event)" (onDebounce)="suggestions($event)" placeholder="Buscar País..."></app-country-input>
+    </div>
   </div>
+  <hr />
 </div>
-<hr />
-
-<div class="alert alert-danger" *ngIf="hasError">
+<div class="animate__animated animate__fadeIn animate__faster alert alert-danger" *ngIf="hasError">
   No se encontro nada con el término {{ word }}.
 </div>
 

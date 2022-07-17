@@ -20,9 +20,7 @@ export class PaisService {
 
   searchCountry(word: string): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${word}`;
-    return this.http.get<Country[]>(url, { params: this.httpParams }).pipe(
-      tap(console.log)
-    );
+    return this.http.get<Country[]>(url, { params: this.httpParams });
   }
 
   searchCapital(word: string) {
